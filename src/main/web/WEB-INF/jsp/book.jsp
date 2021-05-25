@@ -1,11 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>书籍页面</title>
-    <style>
-    </style>
-    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/static/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <%--BootStrap美化--%>
@@ -31,7 +30,8 @@
                 <form class="form-inline" action="${pageContext.request.contextPath}/book/query" method="get">
                     <div class="form-group">
                         <label for="bookName">要查询的书籍名称</label>
-                        <input type="text" class="form-control" name="bookName" id="bookName" placeholder="请输入" required>
+                        <input type="text" class="form-control" name="bookName" id="bookName" placeholder="请输入"
+                               required>
                     </div>
                     <button type="submit" class="btn btn-default">提交</button>
                 </form>
@@ -47,6 +47,7 @@
                         <th>书籍名称</th>
                         <th>书籍数量</th>
                         <th>书籍详情</th>
+                        <th>出版时间</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -58,6 +59,7 @@
                             <td>${book.bookName}</td>
                             <td>${book.bookCounts}</td>
                             <td>${book.detail}</td>
+                            <td><fmt:formatDate value="${book.bookDate}" pattern="yyyy-MM-dd"/></td>
                             <td>
                                 <a href="${pageContext.request.contextPath}/book/updatePage/${book.bookID}"
                                    class="btn btn-primary">修改</a>

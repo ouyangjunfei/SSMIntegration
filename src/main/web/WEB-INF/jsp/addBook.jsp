@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>新增书籍</title>
-    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/static/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -23,11 +23,15 @@
             </div>
             <div class="form-group">
                 <label for="bookCounts">书籍数量</label>
-                <input type="text" class="form-control" name="bookCounts" id="bookCounts" required>
+                <input type="number" class="form-control" name="bookCounts" id="bookCounts" required>
             </div>
             <div class="form-group">
                 <label for="detail">书籍详情</label>
                 <input type="text" class="form-control" name="detail" id="detail" required>
+            </div>
+            <div class="form-group">
+                <label for="bookDate">出版时间</label>
+                <input type="date" class="form-control" name="bookDate" id="bookDate" required>
             </div>
             <button type="submit" class="btn btn-default">提交</button>
         </form>
