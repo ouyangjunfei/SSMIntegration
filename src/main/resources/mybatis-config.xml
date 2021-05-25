@@ -5,14 +5,8 @@
 <configuration>
 
     <settings>
-        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="logImpl" value="SLF4J"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
 
-    <typeAliases>
-        <package name="org.example.pojo"/>
-    </typeAliases>
-
-    <mappers>
-        <package name="org.example.dao"/>
-    </mappers>
 </configuration>

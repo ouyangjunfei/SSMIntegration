@@ -4,38 +4,39 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.dao.BookMapper">
     <insert id="addBook" parameterType="book">
-        insert into mybatis.books (bookName, bookCounts, detail)
-        values (#{bookName}, #{bookCounts}, #{detail});
+        insert into books (book_name, book_count, detail, book_date)
+        values (#{bookName}, #{bookCounts}, #{detail}, #{bookDate});
     </insert>
 
     <delete id="deleteBookById" parameterType="_int">
         delete
-        from mybatis.books
-        where bookID = #{bookID}
+        from books
+        where book_id = #{bookID}
     </delete>
 
     <update id="updateBook" parameterType="book">
-        update mybatis.books
-        set bookName   = #{bookName},
-            bookCounts = #{bookCounts},
-            detail=#{detail}
-        where bookID = #{bookID};
+        update books
+        set book_name  = #{bookName},
+            book_count = #{bookCounts},
+            detail     = #{detail},
+            book_date  = #{bookDate}
+        where book_id = #{bookID};
     </update>
 
     <select id="queryBookById" parameterType="_int" resultType="book">
         select *
-        from mybatis.books
-        where bookID = #{bookID};
+        from books
+        where book_id = #{bookID};
     </select>
 
     <select id="queryAllBooks" resultType="book">
         select *
-        from mybatis.books;
+        from books;
     </select>
 
     <select id="queryBookByName" parameterType="string" resultType="book">
         select *
-        from mybatis.books
-        where bookName like concat('%', #{bookName}, '%');
+        from books
+        where book_name like concat('%', #{bookName}, '%');
     </select>
 </mapper>
