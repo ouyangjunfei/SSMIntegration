@@ -40,3 +40,7 @@ Tomcat版本与对应的`servlet-api`和`jsp-api`参考[Apache Tomcat Versions](
 个人建议先把后面的Ajax与拦截器都学了再做整合
 
 此项目要求对前端有**一点点**了解，包括HTML、CSS、JavaScript
+
+后期在基本的整合内容上，加入了个人学习的前后端日期字段
+
+具体文档可以查看[前后端日期交互](./前后端日期交互.md)
