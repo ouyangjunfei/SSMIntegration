@@ -10,7 +10,14 @@
        https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--注解驱动-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg name="defaultCharset" value="UTF-8"/>
+                <!--<property name="writeAcceptCharset" value="false"/>-->
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
     <!--静态资源过滤-->
     <mvc:default-servlet-handler/>
     <!--扫描包-->

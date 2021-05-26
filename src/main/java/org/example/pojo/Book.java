@@ -12,9 +12,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book {
-    private int BookID;
+    private Integer BookID;
     private String bookName;
-    private int bookCounts;
+    private Integer bookCount;
     private String detail;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")

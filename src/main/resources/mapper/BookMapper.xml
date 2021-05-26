@@ -5,7 +5,7 @@
 <mapper namespace="org.example.dao.BookMapper">
     <insert id="addBook" parameterType="book">
         insert into books (book_name, book_count, detail, book_date)
-        values (#{bookName}, #{bookCounts}, #{detail}, #{bookDate});
+        values (#{bookName}, #{bookCount}, #{detail}, #{bookDate});
     </insert>
 
     <delete id="deleteBookById" parameterType="_int">
@@ -17,7 +17,7 @@
     <update id="updateBook" parameterType="book">
         update books
         set book_name  = #{bookName},
-            book_count = #{bookCounts},
+            book_count = #{bookCount},
             detail     = #{detail},
             book_date  = #{bookDate}
         where book_id = #{bookID};
