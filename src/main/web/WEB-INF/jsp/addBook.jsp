@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>新增书籍</title>
-    <link href="${pageContext.request.contextPath}/static/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -22,8 +22,8 @@
                 <input type="text" class="form-control" name="bookName" id="bookName" required>
             </div>
             <div class="form-group">
-                <label for="bookCounts">书籍数量</label>
-                <input type="number" class="form-control" name="bookCounts" id="bookCounts" required>
+                <label for="bookCount">书籍数量</label>
+                <input type="number" class="form-control" name="bookCount" id="bookCount" required>
             </div>
             <div class="form-group">
                 <label for="detail">书籍详情</label>
@@ -42,5 +42,14 @@
             </a>
         </div>
     </div>
+
+    <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/jquery.validate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/messages_zh.min.js" charset="UTF-8"></script>
+    <script>
+        $(function () {
+            $('form').validate();
+        })
+    </script>
 </body>
 </html>

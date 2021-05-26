@@ -1,8 +1,9 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>修改书籍页面</title>
-    <link href="${pageContext.request.contextPath}/static/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -21,8 +22,8 @@
                 <input type="text" class="form-control" name="bookName" id="bookName" value="${book.bookName}" required>
             </div>
             <div class="form-group">
-                <label for="bookCounts">书籍数量</label>
-                <input type="number" class="form-control" name="bookCounts" id="bookCounts" value="${book.bookCounts}"
+                <label for="bookCount">书籍数量</label>
+                <input type="number" class="form-control" name="bookCount" id="bookCount" value="${book.bookCount}"
                        required>
             </div>
             <div class="form-group">
@@ -31,7 +32,8 @@
             </div>
             <div class="form-group">
                 <label for="bookDate">出版时间</label>
-                <input type="date" class="form-control" name="bookDate" id="bookDate" value="${book.bookDate}" required>
+                <input type="date" class="form-control" name="bookDate" id="bookDate"
+                       value="<fmt:formatDate value="${book.bookDate}" pattern="yyyy-MM-dd"/>" required>
             </div>
             <div>
                 <input type="hidden" name="bookID" id="bookID" value="${book.bookID}">
@@ -46,5 +48,13 @@
             </a>
         </div>
     </div>
+    <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/jquery.validate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/messages_zh.min.js" charset="UTF-8"></script>
+    <script>
+        $(function () {
+            $('form').validate();
+        })
+    </script>
 </body>
 </html>

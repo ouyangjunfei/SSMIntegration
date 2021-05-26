@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>书籍页面</title>
-    <link href="${pageContext.request.contextPath}/static/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <%--BootStrap美化--%>
@@ -57,7 +57,7 @@
                         <tr>
                             <td>${book.bookID}</td>
                             <td>${book.bookName}</td>
-                            <td>${book.bookCounts}</td>
+                            <td>${book.bookCount}</td>
                             <td>${book.detail}</td>
                             <td><fmt:formatDate value="${book.bookDate}" pattern="yyyy-MM-dd"/></td>
                             <td>
@@ -74,11 +74,57 @@
         </div>
 
         <div class="row">
-            <a class="btn btn-primary" href="${pageContext.request.contextPath}/index.jsp">
+            <a class="btn btn-primary col-md-1" href="${pageContext.request.contextPath}/index.jsp">
                 返回主页
             </a>
+            <form action="" id="ajax-form">
+                <label class="col-md-offset-1 col-md-4">
+                    <input type="text" name="bookName" placeholder="bookName" class="form-control" autocomplete="off"
+                           required>
+                </label>
+                <label class="col-md-offset-1 col-md-4">
+                    <input type="number" name="bookCount" placeholder="bookCount" class="form-control"
+                           autocomplete="off" required>
+                </label>
+                <button type="submit" class="btn btn-info">发起</button>
+            </form>
+        </div>
+        <div class="row">
+            <label>
+                <input type="text" placeholder="结果" class="form-control" id="ajax-result">
+            </label>
         </div>
 
     </div>
+    <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/jquery.validate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/messages_zh.min.js" charset="UTF-8"></script>
+    <script src="${pageContext.request.contextPath}/static/js/jquery.serialize-object.min.js"></script>
+    <script>
+        $(function () {
+            let ajaxForm = $('#ajax-form');
+            ajaxForm.validate();
+            ajaxForm.on('submit', function (e) {
+                e.preventDefault();
+                if (ajaxForm.validate().form()) {
+                    $.post({
+                        url: "${pageContext.request.contextPath}/book/ajax",
+                        data: ajaxForm.serializeJSON(),
+                        contentType: 'application/json',
+                        success: function (data, textStatus, jqXHR) {
+                            console.log(typeof data);
+                            console.log(textStatus);
+                            $('#ajax-result').val(data);
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log(textStatus);
+                            alert('发生了错误');
+                        }
+                    });
+                }
+            })
+        })
+
+    </script>
 </body>
 </html>
