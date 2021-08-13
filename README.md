@@ -1,8 +1,8 @@
 # SSM整合学习记录
 
-*参考视频*
+实现书籍管理的增删改查
 
-[【狂神说Java】SpringMVC最新教程IDEA版通俗易懂](https://www.bilibili.com/video/BV1aE41167Tu) `P17-P23`
+*参考视频* [【狂神说Java】SpringMVC最新教程IDEA版通俗易懂](https://www.bilibili.com/video/BV1aE41167Tu) `P17-P23`
 
 ## 资源
 
@@ -21,7 +21,7 @@
 ## 项目环境
 
 - Java : 1.8 (要求)
-- IDEA : 2020.3 Ultimate (建议)
+- IDEA : Ultimate (建议)
 - Maven : Bundled (3.6.3)
 - Spring组件 : 5.x.x (建议)
 - BootStrap : 3.4.x
